@@ -1,6 +1,6 @@
 <template>
-  <el-row>
-    <el-col :span="12"><el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-row class="header">
+    <el-col :span="16"><el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1">处理中心</el-menu-item>
       <el-submenu index="2">
         <template slot="title">我的工作台</template>
@@ -17,21 +17,33 @@
       <el-menu-item index="3" disabled>消息中心</el-menu-item>
       <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
     </el-menu></el-col>
-    <el-col :span="12"><div class="grid-content bg-purple-light"><img src="../../build/logo.png" height="61px"></img></div></el-col>
+    <el-col :span="8">
+      <div class="grid-content bg-purple-light">
+        <img src="../../build/logo.png" height="55px"></img>
+      </div>
+    </el-col>
   </el-row>
 </template>
  <script>
-  export default {
-       data() {
-         return {
-          activeIndex: '1',
-              activeIndex2: '1'
-          };
-       },
-   methods: {
-         handleSelect(key, keyPath) {
-             console.log(key, keyPath);
-          }
-          }
-     }
-   </script>
+export default {
+  data() {
+    return {
+      activeIndex: "1",
+      activeIndex2: "1"
+    };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  }
+};
+</script>
+<style scoped>
+.el-menu.el-menu--horizontal {
+  border-bottom: 0;
+}
+.header {
+  border-bottom: 1px solid #e6e6e6;
+}
+</style>
