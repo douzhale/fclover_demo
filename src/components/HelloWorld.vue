@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
     <swiper :options="swiperOption">
-      <swiper-slide><img src="../assets/img1.jpg"></swiper-slide>
-      <swiper-slide><img src="../assets/img2.jpg"></swiper-slide>
-      <swiper-slide><img src="../assets/img3.jpg"></swiper-slide>
-      <swiper-slide><img src="../assets/img4.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img1.jpg" style="width: 100%;height: 100%"></swiper-slide>
+      <swiper-slide><img src="../assets/img2.jpg" style="width: 100%;height: 100%"></swiper-slide>
+      <swiper-slide><img src="../assets/img3.jpg" style="width: 100%;height: 100%"></swiper-slide>
+      <swiper-slide><img src="../assets/img4.jpg" style="width: 100%;height: 100%"></swiper-slide>
     </swiper>
     <div class="swiper-button-next"></div>   <!--下一项-->
     <div class="swiper-button-prev"></div>   <!-- 上一项-->

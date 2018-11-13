@@ -5,8 +5,6 @@
 </template>
 
 <script>
-  import ElButton from "../../node_modules/element-ui/packages/button/src/button.vue";
-
   export default {
     name: 'foot',
     data () {
