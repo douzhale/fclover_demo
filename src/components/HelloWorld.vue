@@ -1,7 +1,16 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <el-button>哈哈</el-button>
+    <swiper :options="swiperOption">
+      <swiper-slide><img src="../assets/img1.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img2.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img3.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img4.jpg"></swiper-slide>
+    </swiper>
+
+    <div class="swiper-scrollbar"></div>     <!--滚动条-->
+    <div class="swiper-button-next"></div>   <!--下一项-->
+    <div class="swiper-button-prev"></div>   <!-- 上一项-->
+    <div class="swiper-pagination"></div>     <!--标页码-->
   </div>
 </template>
 
@@ -10,9 +19,12 @@ import ElButton from "../../node_modules/element-ui/packages/button/src/button.v
 
 export default {
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      swiperOption: {//swiper3
+        autoplay: false,
+        speed: 1000,
+      }
     }
   }
 }
