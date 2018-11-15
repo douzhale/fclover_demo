@@ -2,14 +2,14 @@
   <div class="hello">
     <div class="swiper-container">
     <swiper :options="swiperOption">
-      <swiper-slide><img src="../assets/img1.jpg" style="width: 100%;height: 100%"></swiper-slide>
-      <swiper-slide><img src="../assets/img2.jpg" style="width: 100%;height: 100%"></swiper-slide>
-      <swiper-slide><img src="../assets/img3.jpg" style="width: 100%;height: 100%"></swiper-slide>
-      <swiper-slide><img src="../assets/img4.jpg" style="width: 100%;height: 100%"></swiper-slide>
+      <swiper-slide><img src="../assets/img1.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img2.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img3.jpg"></swiper-slide>
+      <swiper-slide><img src="../assets/img4.jpg"></swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
-    <div class="swiper-button-next"></div>   <!--下一项-->
-    <div class="swiper-button-prev"></div>   <!-- 上一项-->
-    <div class="swiper-pagination"></div>     <!--标页码-->
   </div>
   </div>
 </template>
@@ -25,13 +25,13 @@ export default {
         speed: 1000,
         direction: "vertical",
         mousewheel: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev"
+        // },
         pagination: {
           el: ".swiper-pagination",
-          clickable :true,
+          clickable: true,
         }
       }
     };
@@ -47,5 +47,6 @@ export default {
 }
 .swiper-slide img {
   width: 100%;
+  height: 100%;
 }
 </style>
