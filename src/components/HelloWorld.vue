@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div class="swiper-container">
     <swiper :options="swiperOption">
       <swiper-slide><img src="../assets/img1.jpg" style="width: 100%;height: 100%"></swiper-slide>
       <swiper-slide><img src="../assets/img2.jpg" style="width: 100%;height: 100%"></swiper-slide>
@@ -9,6 +10,7 @@
     <div class="swiper-button-next"></div>   <!--下一项-->
     <div class="swiper-button-prev"></div>   <!-- 上一项-->
     <div class="swiper-pagination"></div>     <!--标页码-->
+  </div>
   </div>
 </template>
 
