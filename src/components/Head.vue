@@ -47,16 +47,23 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      dialogTableVisible:false
+      dialogTableVisible: false,
+      gridData: []
     };
+  },
+  computed: {
+    slideIndex() {
+      return this.$store.state.slideIndex;
+    }
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
-    login(){
-      console.log("登录了")
-      dialogTableVisible=true
+    login() {
+      console.log("登录了");
+      this.dialogTableVisible = true;
+      console.log(this.$store.state.slideIndex);
     }
   }
 };

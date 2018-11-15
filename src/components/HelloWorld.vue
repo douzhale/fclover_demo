@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div class="swiper-container">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide><img src="../assets/img1.jpg"></swiper-slide>
       <swiper-slide><img src="../assets/img2.jpg"></swiper-slide>
       <swiper-slide><img src="../assets/img3.jpg"></swiper-slide>
@@ -31,7 +31,14 @@ export default {
         // },
         pagination: {
           el: ".swiper-pagination",
-          clickable: true,
+          clickable: true
+        },
+        on: {
+          slideChange: () => {
+            let swiper = this.$refs.mySwiper.swiper;
+            console.log(swiper.activeIndex);
+            this.$store.dispatch('changeSlideIndex',swiper.activeIndex)
+          }
         }
       }
     };
