@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './vuex/store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -11,9 +12,12 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 /* eslint-disable no-new */
+Vue.use(store)
+
 new Vue({
   el: '#app',
   router,
+  store,
   components: {App},
   template: '<App/>'
 })
