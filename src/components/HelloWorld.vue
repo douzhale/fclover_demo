@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div class="swiper-container">
     <swiper :options="swiperOption">
       <swiper-slide><img src="../assets/img1.jpg"></swiper-slide>
       <swiper-slide><img src="../assets/img2.jpg"></swiper-slide>
@@ -9,6 +10,7 @@
       <!-- <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
+  </div>
   </div>
 </template>
 
