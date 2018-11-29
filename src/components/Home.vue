@@ -1,5 +1,4 @@
 <template>
-  
   <div class="section" ref="section">
     <div
       class="container"
@@ -53,21 +52,44 @@ export default {
   },
   mounted() {
     this.sliderHeight = this.$refs.section.offsetHeight;
-    if (document.addEventListener) {
-      document.addEventListener("DOMMouseScroll", this.scroll, false);
-    }
-    window.onmousewheel = document.onmousewheel = this.scroll;
+    this.addScroll();
     window.onresize = () => {
       this.sliderHeight = this.$refs.section.offsetHeight;
       this.hasTransition = false;
     };
   },
-    methods: {
+  beforeDestroy() {
+    this.removeScroll();
+  },
+  computed: {
+    hasModal() {
+      return this.$store.state.hasModal;
+    }
+  },
+  methods: {
+    addScroll() {
+      if (document.addEventListener) {
+        document.addEventListener("DOMMouseScroll", this.scroll, false);
+      }
+      window.onmousewheel = document.onmousewheel = this.scroll;
+    },
+    removeScroll() {
+      const disabledScroll = () => {
+        return false;
+      };
+      if (document.addEventListener) {
+        document.addEventListener("DOMMouseScroll", disabledScroll, false);
+      }
+      window.onmousewheel = document.onmousewheel = disabledScroll;
+    },
     pageInfo(index) {
       this.fullPage = index;
       this.$store.dispatch("changeSlideIndex", index);
     },
     scroll(e) {
+      if(this.hasModal){
+        return false;
+      }
       this.hasTransition = true;
       e = e || window.event;
       if (this.isScroll) {
