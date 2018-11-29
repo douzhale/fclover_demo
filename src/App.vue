@@ -1,15 +1,13 @@
 <template>
   <div id="app">
     <Head></Head>
-    <div class="container">
-      <router-view/>
-    </div>
-    <Foot></Foot>
+    <router-view/>
+    <!-- <Foot></Foot> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import Home from "./components/Home";
 import Foot from "./components/Foot.vue";
 import Head from "./components/Head.vue";
 export default {
@@ -25,9 +23,5 @@ export default {
 }
 html,body,#app {
   height: 100%;
-}
-.container{
-  height: calc(100% - 121px);
-  overflow: hidden;
 }
 </style>

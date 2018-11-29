@@ -1,5 +1,5 @@
 <template>
-  <el-row class="header">
+  <el-row :class="{'header':true,'hide':slideIndex !== 0}">
     <el-col :span="16">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1">处理中心</el-menu-item>
@@ -53,21 +53,20 @@
 
     </el-dialog>
   </el-row>
-
 </template>
  <script>
 export default {
   data() {
     var checkAge = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error('年龄不能为空'));
+        return callback(new Error("年龄不能为空"));
       }
       setTimeout(() => {
         if (!Number.isInteger(value)) {
-          callback(new Error('请输入数字值'));
+          callback(new Error("请输入数字值"));
         } else {
           if (value < 18) {
-            callback(new Error('必须年满18岁'));
+            callback(new Error("必须年满18岁"));
           } else {
             callback();
           }
@@ -75,20 +74,20 @@ export default {
       }, 1000);
     };
     var validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'));
+      if (value === "") {
+        callback(new Error("请输入密码"));
       } else {
-        if (this.ruleForm2.checkPass !== '') {
-          this.$refs.ruleForm2.validateField('checkPass');
+        if (this.ruleForm2.checkPass !== "") {
+          this.$refs.ruleForm2.validateField("checkPass");
         }
         callback();
       }
     };
     var validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请再次输入密码'));
+      if (value === "") {
+        callback(new Error("请再次输入密码"));
       } else if (value !== this.ruleForm2.pass) {
-        callback(new Error('两次输入密码不一致!'));
+        callback(new Error("两次输入密码不一致!"));
       } else {
         callback();
       }
@@ -96,28 +95,22 @@ export default {
     return {
       activeIndex: "1",
       activeIndex2: "1",
-      dialogTableVisible:false,
+      dialogTableVisible: false,
       gridData: [],
       formLabelAlign: {
-        name: '',
-        region: '',
-        type: ''
+        name: "",
+        region: "",
+        type: ""
       },
       ruleForm2: {
-        pass: '',
-        checkPass: '',
-        age: ''
+        pass: "",
+        checkPass: "",
+        age: ""
       },
       rules2: {
-        pass: [
-          { validator: validatePass, trigger: 'blur' }
-        ],
-        checkPass: [
-          { validator: validatePass2, trigger: 'blur' }
-        ],
-        age: [
-          { validator: checkAge, trigger: 'blur' }
-        ]
+        pass: [{ validator: validatePass, trigger: "blur" }],
+        checkPass: [{ validator: validatePass2, trigger: "blur" }],
+        age: [{ validator: checkAge, trigger: "blur" }]
       }
     };
   },
@@ -130,16 +123,16 @@ export default {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
-    login(){
-      console.log("登录了")
-      this.dialogTableVisible=true
+    login() {
+      console.log("登录了");
+      this.dialogTableVisible = true;
     },
     submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(valid => {
         if (valid) {
-          alert('submit!');
+          alert("submit!");
         } else {
-          console.log('error submit!!');
+          console.log("error submit!!");
           return false;
         }
       });
@@ -156,5 +149,14 @@ export default {
 }
 .header {
   border-bottom: 1px solid #e6e6e6;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 1s;
+}
+.header.hide{
+  transform: translateY(-61px);
 }
 </style>
