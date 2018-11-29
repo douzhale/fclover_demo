@@ -26,9 +26,7 @@
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item index="1"><img src="../../build/logo.png" height="55px"></img></el-menu-item>
         <el-menu-item index="2" @click="login">注册</el-menu-item>
-        <el-menu-item index="3">
-          <router-link to="/page">登录</router-link>
-        </el-menu-item>
+        <el-menu-item index="3">登录</el-menu-item>
         <el-menu-item index="4">注销</el-menu-item>
       </el-menu>
     </el-col>
